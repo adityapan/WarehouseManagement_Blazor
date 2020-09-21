@@ -1,0 +1,39 @@
+﻿@page "/inventory"
+
+<h1>Inventory</h1>
+
+@if (InventoryItems == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>			
+				<th>#</th>
+				<th>ProductId</th>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			@{ int i = 1; }
+			@foreach (var inventoryItem in InventoryItems)
+			{
+				<tr>
+					<td>@i</td>
+					<td>@inventoryItem.ProductId</td>
+					<td>@inventoryItem.Name</td>
+					<td>@inventoryItem.Quantity</td>
+					<td>@inventoryItem.Price</td>
+				</tr>
+				{
+					i++;
+				}
+			}
+		</tbody>
+	</table>
+
+}
